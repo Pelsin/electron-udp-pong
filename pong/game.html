@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>UDP Testing</title>
+    <script>
+        'use strict';
+        document.addEventListener("DOMContentLoaded", () => {
+            const {ipcRenderer} = require('electron');
+            const sender = document.getElementById('sender');
+
+            sender.addEventListener('input', () =>
+                ipcRenderer.send('message', sender.value)
+            );
+        });
+    </script>
+</head>
+<body>
+    <h1>UDP</h1>
+    <p>Testing UDP via electron as client, transfering from render to main via ipcRender</p>
+    <textarea id="sender" name="" id="" cols="30" rows="10"></textarea>
+</body>
+</html>
